@@ -1,0 +1,333 @@
+body {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+/* Header ve Video Bölümü */
+header {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navbar genel stil */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(14, 100, 76, 0.7);
+  padding: 10px 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+/* Logo için özel stil */
+nav .logo {
+  flex: 0 0 auto;
+}
+
+nav .logo a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+nav .logo img {
+  max-width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hamburger simgesi */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+nav ul.menu {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0 20px;
+  gap: 10px;
+}
+
+nav ul.menu li {
+  display: inline;
+}
+
+nav ul.menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 10px 15px;
+  transition: 0.3s;
+}
+
+nav ul.menu li a:hover {
+  background: #ffffff;
+  color: #0e644c;
+  border-radius: 5px;
+}
+
+/* Flipbook Stili */
+.menu-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.flipbook-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.flipbook {
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.flipbook .hard {
+  background-color: #f8f8f8;
+  color: #ffffff;
+  border: none;
+}
+
+.flipbook .page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.page img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: auto;
+}
+
+/* Mobil Menü Galerisi */
+.mobile-menu-gallery {
+  display: none;
+  margin: 30px auto;
+  max-width: 100%;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  padding: 10px;
+}
+
+.menu-thumbnail {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.menu-thumbnail.expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  max-width: 60%;
+  max-height: 75vh;
+  z-index: 1100;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Genel Bölüm Stilleri */
+section {
+  padding: 60px 20px;
+}
+
+h2 {
+  color: #0e644c;
+  margin-bottom: 30px;
+}
+
+/* Footer ve Harita */
+footer {
+  background: #333;
+  color: white;
+  padding: 40px 20px;
+}
+
+.map-container {
+  height: 400px;
+  width: 100%;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.contact-info {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+footer a {
+  color: #f8b400;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  z-index: 9999;
+}
+
+#preloader.hidden {
+  display: none;
+}
+
+#preloader img {
+  width: 150px;
+  animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+  /* Header ve Nav için mobil düzenleme */
+  nav {
+    padding: 5px 15px;
+  }
+
+  nav .logo img {
+    max-width: 50px;
+    height: 50px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  nav ul.menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(14, 100, 76, 0.9);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  nav ul.menu li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  nav ul.menu li a {
+    font-size: 16px;
+    padding: 15px;
+    display: block;
+  }
+
+  nav ul.menu.active {
+    display: block;
+  }
+
+  /* Flipbook mobil görünümü */
+  .flipbook-container {
+    display: none;
+  }
+
+  .mobile-menu-gallery {
+    display: block;
+  }
+
+  /* Genel bölüm düzenlemeleri */
+  section {
+    padding: 40px 15px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  /* Harita */
+  .map-container {
+    height: 300px;
+  }
+}
+
+/* Tablet ve Küçük Ekranlar */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .flipbook {
+    width: 700px;
+    height: 420px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .flipbook-container {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1000px;
+  }
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mualla</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/logo.png" type="image/x-icon" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="img/logo.png" alt="Kafe Logosu" class="logo" />
+    </div>
+
+    <header>
+      <nav>
+        <div class="logo">
+          <a href="#">
+            <img src="img/logo.png" alt="Kafe Logosu" />
+          </a>
+        </div>
+        <span class="hamburger" id="hamburger-icon">&#9776;</span>
+        <ul class="menu" id="nav-menu">
+          <li><a href="#">Ana Sayfa</a></li>
+          <li><a href="#menu">Menü</a></li>
+          <li><a href="#hakkimizda">Hakkımızda</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+      </nav>
+      <section class="bg-video">
+        <div class="video-container">
+          <video autoplay muted loop playsinline>
+            <source src="video/slm.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </section>
+    </header>
+
+    <section id="menu" class="menu-section">
+      <h2>Menümüz</h2>
+      <div class="flipbook-container">
+        <div class="flipbook">
+          <div>
+            <img src="menu/1.jpg" alt="Menü Sayfa 1" />
+          </div>
+          <div>
+            <img src="menu/2.jpg" alt="Menü Sayfa 2" />
+          </div>
+          <div>
+            <img src="menu/3.jpg" alt="Menü Sayfa 3" />
+          </div>
+          <div>
+            <img src="menu/4.jpg" alt="Menü Sayfa 4" />
+          </div>
+          <div>
+            <img src="menu/5.jpg" alt="Menü Sayfa 5" />
+          </div>
+          <div>
+            <img src="menu/6.jpg" alt="Menü Sayfa 6" />
+          </div>
+          <div>
+            <img src="menu/7.jpg" alt="Menü Sayfa 7" />
+          </div>
+          <div>
+            <img src="menu/8.jpg" alt="Menü Sayfa 8" />
+          </div>
+          <div>
+            <img src="menu/9.jpg" alt="Menü Sayfa 9" />
+          </div>
+          <div>
+            <img src="menu/10.jpg" alt="Menü Sayfa 10" />
+          </div>
+          <div>
+            <img src="menu/11.jpg" alt="Menü Sayfa 11" />
+          </div>
+          <div>
+            <img src="menu/12.jpg" alt="Menü Sayfa 12" />
+          </div>
+          <div>
+            <img src="menu/13.jpg" alt="Menü Sayfa 13" />
+          </div>
+          <div class="hard"></div>
+          <div class="hard"></div>
+        </div>
+      </div>
+      <div class="mobile-menu-gallery">
+        <h3>Menü Sayfaları</h3>
+        <div class="gallery-container">
+          <img src="menu/1.jpg" alt="Menü Sayfa 1" class="menu-thumbnail" />
+          <img src="menu/2.jpg" alt="Menü Sayfa 2" class="menu-thumbnail" />
+          <img src="menu/3.jpg" alt="Menü Sayfa 3" class="menu-thumbnail" />
+          <img src="menu/4.jpg" alt="Menü Sayfa 4" class="menu-thumbnail" />
+          <img src="menu/5.jpg" alt="Menü Sayfa 5" class="menu-thumbnail" />
+          <img src="menu/6.jpg" alt="Menü Sayfa 6" class="menu-thumbnail" />
+          <img src="menu/7.jpg" alt="Menü Sayfa 7" class="menu-thumbnail" />
+          <img src="menu/8.jpg" alt="Menü Sayfa 8" class="menu-thumbnail" />
+          <img src="menu/9.jpg" alt="Menü Sayfa 9" class="menu-thumbnail" />
+          <img src="menu/10.jpg" alt="Menü Sayfa 10" class="menu-thumbnail" />
+          <img src="menu/11.jpg" alt="Menü Sayfa 11" class="menu-thumbnail" />
+          <img src="menu/12.jpg" alt="Menü Sayfa 12" class="menu-thumbnail" />
+          <img src="menu/13.jpg" alt="Menü Sayfa 13" class="menu-thumbnail" />
+        </div>
+      </div>
+    </section>
+
+    <footer id="iletisim">
+      <h2>İletişim</h2>
+      <div id="map" class="map-container"></div>
+      <div class="contact-info">
+        <p>
+          Instagram:
+          <a href="https://www.instagram.com/coffeemualla" target="_blank"
+            >@coffeemualla</a
+          >
+        </p>
+        <p>İş e-postası: <a href="mailto:info@kafe.com">info@kafe.com</a></p>
+        <p>&copy; 2025 MUALLA. Designed by Ceren Gürses.</p>
+      </div>
+    </footer>
+
+    <script src="jquery.js"></script>
+    <script src="turn.js"></script>
+    <script>
+      // Ekran boyutuna göre flipbook ayarlarını yapılandır
+      function loadFlipbook() {
+        var containerWidth = Math.min(window.innerWidth * 0.8, 1000);
+        var flipbookWidth = containerWidth;
+        var flipbookHeight = flipbookWidth * 0.7;
+
+        $(".flipbook").turn({
+          width: flipbookWidth,
+          height: flipbookHeight,
+          autoCenter: true,
+          display: "double",
+          elevation: 50,
+          when: {
+            turned: function (event, page, view) {
+              if (page === 1) {
+                $(this).turn("peel", "br");
+              }
+            },
+          },
+        });
+
+        // Flipbook'u sayfada ortala
+        $(".flipbook").css({
+          left: "50%",
+          transform: "translateX(-90%)",
+        });
+      }
+
+      // Sayfa yüklendiğinde flipbook'u başlat
+      $(document).ready(function () {
+        if (window.innerWidth > 768) {
+          loadFlipbook();
+
+          // Ekran boyutu değiştiğinde flipbook'u yeniden boyutlandır
+          $(window).resize(function () {
+            if (window.innerWidth > 768) {
+              $(".flipbook").turn(
+                "size",
+                Math.min(window.innerWidth - 40, 1000),
+                Math.min(window.innerWidth - 40, 1000) * 0.6
+              );
+            }
+          });
+        } else {
+          // Mobil cihazlarda flipbook'u gizle, galeriyi göster
+          $(".flipbook-container").hide();
+          $(".mobile-menu-gallery").show();
+        }
+      });
+
+      // Menü resmine tıklandığında büyütme
+      $(".menu-thumbnail").click(function () {
+        $(this).toggleClass("expanded");
+      });
+
+      // Hamburger menü işlevselliği
+      document
+        .getElementById("hamburger-icon")
+        .addEventListener("click", function () {
+          document.getElementById("nav-menu").classList.toggle("active");
+        });
+
+      // Preloader
+      window.addEventListener("load", function () {
+        document.getElementById("preloader").style.display = "none";
+      });
+
+      // Google Maps
+      function initMap() {
+        var kafeLocation = { lat: 40.038509, lng: 28.408376 };
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 14,
+          center: kafeLocation,
+        });
+        var marker = new google.maps.Marker({
+          position: kafeLocation,
+          map: map,
+          title: "MUALLA",
+        });
+      }
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCasHAvSGxlTECI_WHtfXw-H7NlK4iEuPg&callback=initMap&v=weekly"
+      async
+      defer
+    ></script>
+  </body>
+</html>
